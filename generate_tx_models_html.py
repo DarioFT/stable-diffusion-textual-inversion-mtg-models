@@ -36,7 +36,6 @@ html_struct = f"""
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="google-site-verification" content="pgoBH8R__ZWngQ-S3o8xopSpHYROu_0VfoS5VYXB3uw" />
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -68,7 +67,7 @@ html_struct = f"""
       }}
 
     .model-title {{
-        margin-top: 100px;
+        margin-top: 40px;
       }}
 
     body {{
@@ -103,12 +102,11 @@ html_struct = f"""
     </p>
 
     <p>
-      Embeddings are downloaded straight from the HuggingFace repositories. The images displayed are the inputs, not the outputs. Want to quickly test concepts? 
-      <br>Try the <a href="https://huggingface.co/spaces/sd-concepts-library/stable-diffusion-conceptualizer">Stable Diffusion Conceptualizer</a> on HuggingFace. <a href="https://huggingface.co/docs/diffusers/main/en/training/text_inversion">More info on textual inversion.</a>
+      Embeddings are downloaded straight from the HuggingFace repositories. The images displayed are the inputs, not the outputs. <br> Want to quickly test concepts? 
+      Try the <a href="https://huggingface.co/spaces/sd-concepts-library/stable-diffusion-conceptualizer">Stable Diffusion Conceptualizer</a> on HuggingFace. <a href="https://huggingface.co/docs/diffusers/main/en/training/text_inversion">More info on textual inversion.</a>
     </p>
 
     <hr>
-    <noscript><p><img src="https://mato.evulid.cc/matomo.php?idsite=1&rec=1&url=https://cyberes.github.io/stable-diffusion-textual-inversion-models" style="border:0;" alt="" /></p></noscript>
 """
 
 i = 1
@@ -119,7 +117,7 @@ for model_name in models_list:
 
     print(f'{i}/{len(models_list)} -> {model_name}')
 
-    html_struct = html_struct + f'<div data-track-content data-content-name="{model_name}" data-content-piece="TX Model Item"><h3 class="model-title" id="{model_name}"><a href="#{model_name}">{model_name.replace("-", " " ).title()}</a></h3>'
+    html_struct = html_struct + f'<div><h3 class="model-title" id="{model_name}"><a href="#{model_name}">{model_name.replace("-", " " ).title()}</a></h3>'
 
     # Get the concept images from the huggingface repo
     restricted = False
@@ -184,7 +182,6 @@ html_struct = html_struct + """
         .catch(err => {
           console.log("error", err);
         });
-      _paq.push(['trackLink', url, 'download']);
     };
     document.addEventListener("DOMContentLoaded", () => {
         // Enable tooltips
@@ -193,11 +190,6 @@ html_struct = html_struct + """
             placement: "bottom"
           })
         });
-      /*
-      var waypoints = $(".model-title").waypoint(function(direction) {
-        _paq.push(["trackEvent", "Scroll", "View TX Model", this.element.getAttribute("data-content-name")]);
-      })
-      */
    });
   </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
