@@ -28,7 +28,7 @@ tz = dt.astimezone().tzname()
 # Get list of models under the sd-concepts-library organization
 for model in api.list_models(author="sd-concepts-library"):
     models_list.append(model.modelId.replace('sd-concepts-library/', ''))
-models_list.sort()
+    logger.info(model);
 
 html_struct = f"""
 <!DOCTYPE html>
