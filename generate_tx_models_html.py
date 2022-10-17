@@ -167,8 +167,8 @@ for model_name in models_list:
         </div>
                 """
                 html_struct = html_struct + '</div></div>'
-                i = i + 1
-                html_struct = html_struct + """
+            i = i + 1
+    html_struct = html_struct + """
         </div>
     </div>
 
@@ -187,8 +187,8 @@ for model_name in models_list:
         </div>
                 """
                 html_struct = html_struct + '</div></div>'
-                i = i + 2
-                html_struct = html_struct + """
+            i = i + 2
+        html_struct = html_struct + """
         </div>
     </div>
 </div>
