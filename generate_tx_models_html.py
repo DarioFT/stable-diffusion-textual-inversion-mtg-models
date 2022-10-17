@@ -28,7 +28,7 @@ tz = dt.astimezone().tzname()
 # Get list of models under the sd-concepts-library organization
 for model in api.list_models(author="sd-concepts-library"):
     models_list.append(model.modelId.replace('sd-concepts-library/', ''))
-    logger.info(model);
+    print(model);
 
 html_struct = f"""
 <!DOCTYPE html>
@@ -100,18 +100,6 @@ html_struct = f"""
         text-decoration: none !important;
     }}
   </style>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:#6c757d42!important;">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="/stable-diffusion-models/">Models</a>
-          <a class="nav-link active" aria-current="page" href="/stable-diffusion-textual-inversion-models/">Textual Inversion Embeddings</a>
-        <a class="nav-link" href="/stable-diffusion-dreambooth-library/">DreamBooth Models</a>
-        </div>
-      </div>
-    </div>
-  </nav>
 
   <div class="container" style="margin-bottom: 180px;">
     <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
