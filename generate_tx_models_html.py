@@ -29,10 +29,9 @@ tz = dt.astimezone().tzname()
 html_struct = f"""
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <title>MTG Stable Diffusion Textual Inversion Embeddings</title>
+  <title>Stable Diffusion Textual Inversion Embeddings</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -40,8 +39,7 @@ html_struct = f"""
   <meta name="google-site-verification" content="pgoBH8R__ZWngQ-S3o8xopSpHYROu_0VfoS5VYXB3uw" />
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/stable-diffusion-textual-inversion-models/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/stable-diffusion-textual-inversion-models/favicon-32x32.png">
@@ -53,25 +51,47 @@ html_struct = f"""
   <meta name="msapplication-config" content="/stable-diffusion-textual-inversion-models/browserconfig.xml">
   <meta name="theme-color" content="#ee9321">
 
+  <!-- Matomo -->
+  <!-- Open-source, self hosted, private analytics. No third parties involved. -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['trackVisibleContentImpressions']);
+    _paq.push(['enableLinkTracking']);
+    _paq.push(['enableHeartBeatTimer']);
+    (function() {{
+        var u = "https://mato.evulid.cc/";
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = u + 'matomo.js';
+        s.parentNode.insertBefore(g, s);
+      }})();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 
 <body>
   <style>
-    .thumbnail {
-      max-width: 185px;
-      display: block;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
+    .thumbnail {{
+        max-width: 185px;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }}
 
-    .model-title {
-      margin-top: 100px;
-    }
+    .model-title {{
+        margin-top: 100px;
+      }}
 
-    body {
-      background-color: #0000ff0d !important;
-    }
+    body {{
+        background-color: #0000ff0d !important;
+    }}
 
+<<<<<<< HEAD
     .model-title>a {
       color: initial !important;
       text-decoration: none !important;
@@ -87,30 +107,33 @@ html_struct = f"""
     <div class="jumbotron text-center"
       style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
       <img src="mtglogo.png" class="img-fluid img-max">
+=======
+    .model-title > a {{
+        color: initial !important;
+        text-decoration: none !important;
+    }}
+  </style>
+
+  <div class="container" style="margin-bottom: 180px;">
+    <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
+>>>>>>> parent of 458a483 (Website updates)
       <h1>Stable Diffusion Textual Inversion Embeddings</h1>
+    </div>
+    <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
+      <h3>Magic: The Gathering</h3>
     </div>
     <div style="text-align: center;margin-bottom: 45px;font-size: 8pt;">
       <p>
-        <div>
-          <a
-            href="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml"><img
-              src="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml/badge.svg"></a>
-        </div>
-        <br>
         <i>Page updated automatically updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="{dt.strftime(f"%m-%d-%Y %H:%M:%S {tz}")}">{dt.strftime("%A %B %d, %Y")}</a>.</i>
       </p>
     </div>
 
     <p>
-      Curated <a href="https://huggingface.co/sd-concepts-library">HuggingFace</a> textual inversion library for Magic: The Gathering models.
-      <br>
-      There are currently {len(models_list)} textual inversion embeddings available. These are meant to be used with <a
-        href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111's SD WebUI</a>.
+      Browser for the <a href="https://huggingface.co/sd-concepts-library">HuggingFace textual inversion library</a>. There are currently {len(models_list)} textual inversion embeddings in sd-concepts-library. These are meant to be used with <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111's SD WebUI</a>.
     </p>
 
     <p>
-      Embeddings are downloaded straight from the HuggingFace repositories. The images displayed are the inputs, not the outputs. 
-      <br>Want to quickly test concepts? Try the <a href="https://huggingface.co/spaces/sd-concepts-library/stable-diffusion-conceptualizer">Stable Diffusion Conceptualizer</a> on HuggingFace. <a href="https://huggingface.co/docs/diffusers/main/en/training/text_inversion">More info on textual inversion.</a>
+      Embeddings are downloaded straight from the HuggingFace repositories. The images displayed are the inputs, not the outputs. Want to quickly test concepts? Try the <a href="https://huggingface.co/spaces/sd-concepts-library/stable-diffusion-conceptualizer">Stable Diffusion Conceptualizer</a> on HuggingFace. <a href="https://huggingface.co/docs/diffusers/main/en/training/text_inversion">More info on textual inversion.</a>
     </p>
 
     <center>
