@@ -143,16 +143,41 @@ for model_name in models_list:
   <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/{model_name}/">View Repository</a>
 </p>
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs" id="{model_name}-tab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+    <button class="nav-link active" id="{model_name}-sample-tab" data-bs-toggle="tab" data-bs-target="#{model_name}-sample" type="button" role="tab" aria-controls="{model_name}-sample" aria-selected="true">Sample</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+    <button class="nav-link" id="{model_name}-model-tab" data-bs-toggle="tab" data-bs-target="#{model_name}-model" type="button" role="tab" aria-controls="{model_name}-model" aria-selected="false">Model</button>
   </li>
 </ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<div class="tab-content" id="{model_name}-tab">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="{model_name}-sample-tab">
+
+<div class="row">
+        """
+
+        # Most repos have 3 concept images but some have more or less
+        # We gotta make sure only 3 are shown
+        img_count = 4
+        if len(concept_images) < 4:
+            img_count = len(concept_images)
+
+        for x in range(img_count):
+            html_struct = html_struct + f"""
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
+</div>
+            """
+        html_struct = html_struct + '</div></div>'
+    i = i + 1
+
+html_struct = html_struct + """
+
+</div>
+
+  <div class="tab-pane fade" id="{model_name}-model-tab" role="tabpanel" aria-labelledby="{model_name}-model-tab">
 
 <div class="row">
         """
