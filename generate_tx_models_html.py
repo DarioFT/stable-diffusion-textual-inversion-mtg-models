@@ -184,19 +184,19 @@ html_struct = html_struct + """
 
         # Most repos have 3 concept images but some have more or less
         # We gotta make sure only 3 are shown
-        img_count = 3
-        if len(concept_images) < 3:
-            img_count = len(concept_images)
+    img_count = 3
+    if len(concept_images) < 3:
+        img_count = len(concept_images)
 
-        for x in range(img_count):
-            html_struct = html_struct + f"""
+    for x in range(img_count):
+        html_struct = html_struct + f"""
 <div class="col-sm">
   <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">-->
   <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
 </div>
             """
-        html_struct = html_struct + '</div></div>'
-    i = i + 1
+    html_struct = html_struct + '</div></div>'
+i = i + 1
 
 html_struct = html_struct + """
 
