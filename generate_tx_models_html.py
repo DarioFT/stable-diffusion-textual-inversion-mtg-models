@@ -19,16 +19,11 @@ print('Will save to file:', args.out_file)
 
 # Init some stuff before saving the time
 api = HfApi()
-models_list = []
+models_list = ["nissa-revane", "tamiyo"]
 
 # Save the time now before we do the hard work
 dt = datetime.datetime.now()
 tz = dt.astimezone().tzname()
-
-# Get list of models under the sd-concepts-library organization
-for model in api.list_models(author="sd-concepts-library"):
-    models_list.append(model.modelId.replace('sd-concepts-library/', ''))
-    print(model);
 
 html_struct = f"""
 <!DOCTYPE html>
