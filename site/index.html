@@ -1,9 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <title>MTG Stable Diffusion Textual Inversion Embeddings</title>
+  <title>Stable Diffusion Textual Inversion Embeddings</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -11,8 +11,7 @@
   <meta name="google-site-verification" content="pgoBH8R__ZWngQ-S3o8xopSpHYROu_0VfoS5VYXB3uw" />
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/stable-diffusion-textual-inversion-models/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/stable-diffusion-textual-inversion-models/favicon-32x32.png">
@@ -24,293 +23,237 @@
   <meta name="msapplication-config" content="/stable-diffusion-textual-inversion-models/browserconfig.xml">
   <meta name="theme-color" content="#ee9321">
 
+  <!-- Matomo -->
+  <!-- Open-source, self hosted, private analytics. No third parties involved. -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['trackVisibleContentImpressions']);
+    _paq.push(['enableLinkTracking']);
+    _paq.push(['enableHeartBeatTimer']);
+    (function() {
+        var u = "https://mato.evulid.cc/";
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0];
+        g.async = true;
+        g.src = u + 'matomo.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 
 <body>
   <style>
     .thumbnail {
-      max-width: 185px;
-      display: block;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
+        max-width: 185px;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
 
     .model-title {
-      margin-top: 100px;
-    }
+        margin-top: 100px;
+      }
 
     body {
-      background-color: #0000ff0d !important;
+        background-color: #0000ff0d !important;
     }
 
-    .model-title>a {
-      color: initial !important;
-      text-decoration: none !important;
+    .model-title > a {
+        color: initial !important;
+        text-decoration: none !important;
     }
   </style>
 
   <div class="container" style="margin-bottom: 180px;">
-    <div class="jumbotron text-center"
-      style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
-      <img src="mtglogo.png" class="img-fluid" style="max-width: 500px; width:100%;">
+    <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
       <h1>Stable Diffusion Textual Inversion Embeddings</h1>
+    </div>
+    <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
+      <h3>Magic: The Gathering</h3>
     </div>
     <div style="text-align: center;margin-bottom: 45px;font-size: 8pt;">
       <p>
-        <div>
-          <a
-            href="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml"><img
-              src="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml/badge.svg"></a>
-        </div>
-        <br>
-        <i>Page updated automatically updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;"
-            data-toggle="tooltip" data-placement="bottom" title="10-17-2022 18:58:44 UTC">Monday October 17,
-            2022</a>.</i>
+        <i>Page updated automatically updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="10-17-2022 20:02:15 UTC">Monday October 17, 2022</a>.</i>
       </p>
     </div>
 
     <p>
-      Curated <a href="https://huggingface.co/sd-concepts-library">HuggingFace</a> textual inversion library for Magic: The Gathering models.
-      <br>
-      There are currently 7 textual inversion embeddings in sd-concepts-library. These are meant to be used with <a
-        href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111's SD WebUI</a>.
+      Browser for the <a href="https://huggingface.co/sd-concepts-library">HuggingFace textual inversion library</a>. There are currently 7 textual inversion embeddings in sd-concepts-library. These are meant to be used with <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111's SD WebUI</a>.
     </p>
 
     <p>
-      Embeddings are downloaded straight from the HuggingFace repositories. The images displayed are the inputs, not the
-      outputs. Want to quickly test concepts? Try the <a
-        href="https://huggingface.co/spaces/sd-concepts-library/stable-diffusion-conceptualizer">Stable Diffusion
-        Conceptualizer</a> on HuggingFace. <a
-        href="https://huggingface.co/docs/diffusers/main/en/training/text_inversion">More info on textual inversion.</a>
+      Embeddings are downloaded straight from the HuggingFace repositories. The images displayed are the inputs, not the outputs. Want to quickly test concepts? Try the <a href="https://huggingface.co/spaces/sd-concepts-library/stable-diffusion-conceptualizer">Stable Diffusion Conceptualizer</a> on HuggingFace. <a href="https://huggingface.co/docs/diffusers/main/en/training/text_inversion">More info on textual inversion.</a>
     </p>
 
+    <center>
+      <a href="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml"><img src="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml/badge.svg"></a>
+    </center>
     <br>
     <hr>
-    <noscript>
-      <p><img
-          src="https://mato.evulid.cc/matomo.php?idsite=1&rec=1&url=https://cyberes.github.io/stable-diffusion-textual-inversion-models"
-          style="border:0;" alt="" /></p>
-    </noscript>
-    <div data-track-content data-content-name="chandra-nalaar" data-content-piece="TX Model Item">
-      <h3 class="model-title" id="chandra-nalaar"><a href="#chandra-nalaar">Chandra Nalaar</a></h3>
-      <p>
-        <button type="button" class="btn btn-primary"
-          onclick="downloadAs('https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/learned_embeds.bin', 'chandra-nalaar.pt')">Download
-          chandra-nalaar.pt</button>
-        <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/chandra-nalaar/">View
-          Repository</a>
-      </p>
-      <div class="row">
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/0.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/0.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/1.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/1.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/10.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/10.jpeg">
-        </div>
-      </div>
-    </div>
-    <div data-track-content data-content-name="elspeth-tirel" data-content-piece="TX Model Item">
-      <h3 class="model-title" id="elspeth-tirel"><a href="#elspeth-tirel">Elspeth Tirel</a></h3>
-      <p>
-        <button type="button" class="btn btn-primary"
-          onclick="downloadAs('https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/learned_embeds.bin', 'elspeth-tirel.pt')">Download
-          elspeth-tirel.pt</button>
-        <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/elspeth-tirel/">View
-          Repository</a>
-      </p>
-      <div class="row">
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/0.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/0.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/1.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/1.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/10.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/10.jpeg">
-        </div>
-      </div>
-    </div>
-    <div data-track-content data-content-name="kaya-ghost-assasin" data-content-piece="TX Model Item">
-      <h3 class="model-title" id="kaya-ghost-assasin"><a href="#kaya-ghost-assasin">Kaya Ghost Assasin</a></h3>
-      <p>
-        <button type="button" class="btn btn-primary"
-          onclick="downloadAs('https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/learned_embeds.bin', 'kaya-ghost-assasin.pt')">Download
-          kaya-ghost-assasin.pt</button>
-        <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/">View
-          Repository</a>
-      </p>
-      <div class="row">
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/0.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/0.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/1.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/1.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/10.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/10.jpeg">
-        </div>
-      </div>
-    </div>
-    <div data-track-content data-content-name="kiora" data-content-piece="TX Model Item">
-      <h3 class="model-title" id="kiora"><a href="#kiora">Kiora</a></h3>
-      <p>
-        <button type="button" class="btn btn-primary"
-          onclick="downloadAs('https://huggingface.co/sd-concepts-library/kiora/resolve/main/learned_embeds.bin', 'kiora.pt')">Download
-          kiora.pt</button>
-        <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/kiora/">View
-          Repository</a>
-      </p>
-      <div class="row">
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/0.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/0.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/1.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/1.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/10.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/10.jpeg">
-        </div>
-      </div>
-    </div>
-    <div data-track-content data-content-name="nissa-revane" data-content-piece="TX Model Item">
-      <h3 class="model-title" id="nissa-revane"><a href="#nissa-revane">Nissa Revane</a></h3>
-      <p>
-        <button type="button" class="btn btn-primary"
-          onclick="downloadAs('https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/learned_embeds.bin', 'nissa-revane.pt')">Download
-          nissa-revane.pt</button>
-        <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/nissa-revane/">View
-          Repository</a>
-      </p>
-      <div class="row">
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/0.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/0.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/1.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/1.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/10.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/10.jpeg">
-        </div>
-      </div>
-    </div>
-    <div data-track-content data-content-name="tamiyo" data-content-piece="TX Model Item">
-      <h3 class="model-title" id="tamiyo"><a href="#tamiyo">Tamiyo</a></h3>
-      <p>
-        <button type="button" class="btn btn-primary"
-          onclick="downloadAs('https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/learned_embeds.bin', 'tamiyo.pt')">Download
-          tamiyo.pt</button>
-        <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/tamiyo/">View
-          Repository</a>
-      </p>
-      <div class="row">
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/0.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/0.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/1.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/1.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/10.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/10.jpeg">
-        </div>
-      </div>
-    </div>
-    <div data-track-content data-content-name="vraska" data-content-piece="TX Model Item">
-      <h3 class="model-title" id="vraska"><a href="#vraska">Vraska</a></h3>
-      <p>
-        <button type="button" class="btn btn-primary"
-          onclick="downloadAs('https://huggingface.co/sd-concepts-library/vraska/resolve/main/learned_embeds.bin', 'vraska.pt')">Download
-          vraska.pt</button>
-        <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/vraska/">View
-          Repository</a>
-      </p>
-      <div class="row">
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/0.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/0.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/1.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/1.jpeg">
-        </div>
-
-        <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/10.jpeg">-->
-          <img class="thumbnail mx-auto img-fluid" loading="lazy"
-            src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/10.jpeg">
-        </div>
-      </div>
-    </div>
+    <noscript><p><img src="https://mato.evulid.cc/matomo.php?idsite=1&rec=1&url=https://cyberes.github.io/stable-diffusion-textual-inversion-models" style="border:0;" alt="" /></p></noscript>
+<div data-track-content data-content-name="chandra-nalaar" data-content-piece="TX Model Item"><h3 class="model-title" id="chandra-nalaar"><a href="#chandra-nalaar">Chandra Nalaar</a></h3>
+<p>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/learned_embeds.bin', 'chandra-nalaar.pt')">Download chandra-nalaar.pt</button>
+  <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/chandra-nalaar/">View Repository</a>
+</p>
+<div class="row">
+        
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/0.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/0.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/1.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/1.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/10.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/chandra-nalaar/resolve/main/concept_images/10.jpeg">
+</div>
+            </div></div><div data-track-content data-content-name="elspeth-tirel" data-content-piece="TX Model Item"><h3 class="model-title" id="elspeth-tirel"><a href="#elspeth-tirel">Elspeth Tirel</a></h3>
+<p>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/learned_embeds.bin', 'elspeth-tirel.pt')">Download elspeth-tirel.pt</button>
+  <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/elspeth-tirel/">View Repository</a>
+</p>
+<div class="row">
+        
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/0.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/0.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/1.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/1.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/10.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/elspeth-tirel/resolve/main/concept_images/10.jpeg">
+</div>
+            </div></div><div data-track-content data-content-name="kaya-ghost-assasin" data-content-piece="TX Model Item"><h3 class="model-title" id="kaya-ghost-assasin"><a href="#kaya-ghost-assasin">Kaya Ghost Assasin</a></h3>
+<p>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/learned_embeds.bin', 'kaya-ghost-assasin.pt')">Download kaya-ghost-assasin.pt</button>
+  <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/">View Repository</a>
+</p>
+<div class="row">
+        
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/0.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/0.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/1.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/1.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/10.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/kaya-ghost-assasin/resolve/main/concept_images/10.jpeg">
+</div>
+            </div></div><div data-track-content data-content-name="kiora" data-content-piece="TX Model Item"><h3 class="model-title" id="kiora"><a href="#kiora">Kiora</a></h3>
+<p>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/kiora/resolve/main/learned_embeds.bin', 'kiora.pt')">Download kiora.pt</button>
+  <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/kiora/">View Repository</a>
+</p>
+<div class="row">
+        
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/0.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/0.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/1.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/1.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/10.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/kiora/resolve/main/concept_images/10.jpeg">
+</div>
+            </div></div><div data-track-content data-content-name="nissa-revane" data-content-piece="TX Model Item"><h3 class="model-title" id="nissa-revane"><a href="#nissa-revane">Nissa Revane</a></h3>
+<p>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/learned_embeds.bin', 'nissa-revane.pt')">Download nissa-revane.pt</button>
+  <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/nissa-revane/">View Repository</a>
+</p>
+<div class="row">
+        
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/0.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/0.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/1.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/1.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/10.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/nissa-revane/resolve/main/concept_images/10.jpeg">
+</div>
+            </div></div><div data-track-content data-content-name="tamiyo" data-content-piece="TX Model Item"><h3 class="model-title" id="tamiyo"><a href="#tamiyo">Tamiyo</a></h3>
+<p>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/learned_embeds.bin', 'tamiyo.pt')">Download tamiyo.pt</button>
+  <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/tamiyo/">View Repository</a>
+</p>
+<div class="row">
+        
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/0.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/0.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/1.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/1.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/10.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/tamiyo/resolve/main/concept_images/10.jpeg">
+</div>
+            </div></div><div data-track-content data-content-name="vraska" data-content-piece="TX Model Item"><h3 class="model-title" id="vraska"><a href="#vraska">Vraska</a></h3>
+<p>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/vraska/resolve/main/learned_embeds.bin', 'vraska.pt')">Download vraska.pt</button>
+  <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/vraska/">View Repository</a>
+</p>
+<div class="row">
+        
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/0.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/0.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/1.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/1.jpeg">
+</div>
+            
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/10.jpeg">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/vraska/resolve/main/concept_images/10.jpeg">
+</div>
+            </div></div>
   </div>
   <script>
     // Download the file under a different name
     const downloadAs = (url, name) => {
       axios.get(url, {
-        headers: {
-          "Content-Type": "application/octet-stream"
-        },
-        responseType: "blob"
-      })
+          headers: {
+            "Content-Type": "application/octet-stream"
+          },
+          responseType: "blob"
+        })
         .then(response => {
           const a = document.createElement("a");
           const url = window.URL.createObjectURL(response.data);
@@ -324,24 +267,20 @@
       _paq.push(['trackLink', url, 'download']);
     };
     document.addEventListener("DOMContentLoaded", () => {
-      // Enable tooltips
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip({
-          placement: "bottom"
-        })
-      });
+        // Enable tooltips
+        $(function() {
+          $('[data-toggle="tooltip"]').tooltip({
+            placement: "bottom"
+          })
+        });
       /*
       var waypoints = $(".model-title").waypoint(function(direction) {
         _paq.push(["trackEvent", "Scroll", "View TX Model", this.element.getAttribute("data-content-name")]);
       })
       */
-    });
+   });
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-    crossorigin="anonymous"></script>
-  <!--<script src="/stable-diffusion-textual-inversion-models/jquery.waypoints.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <!--<script src="/stable-diffusion-textual-inversion-models/jquery.waypoints.min.js"></script>-->
 </body>
