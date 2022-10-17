@@ -91,23 +91,6 @@ html_struct = f"""
         background-color: #0000ff0d !important;
     }}
 
-<<<<<<< HEAD
-    .model-title>a {
-      color: initial !important;
-      text-decoration: none !important;
-    }
-    
-    .img-max{
-        max-width: 500px; 
-    }
-    
-  </style>
-
-  <div class="container" style="margin-bottom: 180px;">
-    <div class="jumbotron text-center"
-      style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
-      <img src="mtglogo.png" class="img-fluid img-max">
-=======
     .model-title > a {{
         color: initial !important;
         text-decoration: none !important;
@@ -116,7 +99,6 @@ html_struct = f"""
 
   <div class="container" style="margin-bottom: 180px;">
     <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
->>>>>>> parent of 458a483 (Website updates)
       <h1>Stable Diffusion Textual Inversion Embeddings</h1>
     </div>
     <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
