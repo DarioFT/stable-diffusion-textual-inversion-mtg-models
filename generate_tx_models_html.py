@@ -79,7 +79,6 @@ html_struct = f"""
     
     .img-max{
         max-width: 500px; 
-        width:100%;
     }
     
   </style>
