@@ -1,6 +1,6 @@
 # stable-diffusion-textual-inversion-models
 
-_Automated curated list of Stable Diffusion textual inversion MTG models from sd-concepts-library. _
+_Automated curated list of Stable Diffusion textual inversion MTG models from sd-concepts-library._
 
 [![Generate Static HTML](https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml/badge.svg)](https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml)
 
