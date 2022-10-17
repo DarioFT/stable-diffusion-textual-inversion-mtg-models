@@ -19,7 +19,8 @@ print('Will save to file:', args.out_file)
 
 # Init some stuff before saving the time
 api = HfApi()
-models_list = ["nissa-revane", "tamiyo"]
+models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin"]
+models_list.sort()
 
 # Save the time now before we do the hard work
 dt = datetime.datetime.now()
@@ -100,9 +101,12 @@ html_struct = f"""
     <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
       <h1>Stable Diffusion Textual Inversion Embeddings</h1>
     </div>
+    <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
+      <h3>Magic: The Gathering</h3>
+    </div>
     <div style="text-align: center;margin-bottom: 45px;font-size: 8pt;">
       <p>
-        <i>Page updates automatically daily. Last updated <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="{dt.strftime(f"%m-%d-%Y %H:%M:%S {tz}")}">{dt.strftime("%A %B %d, %Y")}</a>.</i>
+        <i>Page updated automatically updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="{dt.strftime(f"%m-%d-%Y %H:%M:%S {tz}")}">{dt.strftime("%A %B %d, %Y")}</a>.</i>
       </p>
     </div>
 
@@ -115,7 +119,7 @@ html_struct = f"""
     </p>
 
     <center>
-      <a href="https://github.com/Cyberes/stable-diffusion-textual-inversion-models/actions/workflows/generate_static_html.yml"><img src="https://github.com/Cyberes/stable-diffusion-textual-inversion-models/actions/workflows/generate_static_html.yml/badge.svg"></a>
+      <a href="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml"><img src="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml/badge.svg"></a>
     </center>
     <br>
     <hr>
@@ -130,7 +134,7 @@ for model_name in models_list:
 
     print(f'{i}/{len(models_list)} -> {model_name}')
 
-    html_struct = html_struct + f'<div data-track-content data-content-name="{model_name}" data-content-piece="TX Model Item"><h3 class="model-title" id="{model_name}"><a href="#{model_name}">{model_name}</a></h3>'
+    html_struct = html_struct + f'<div data-track-content data-content-name="{model_name}" data-content-piece="TX Model Item"><h3 class="model-title" id="{model_name}"><a href="#{model_name}">{model_name.replace("-", " " ).title()}</a></h3>'
 
     # Get the concept images from the huggingface repo
     restricted = False
