@@ -76,12 +76,18 @@ html_struct = f"""
       color: initial !important;
       text-decoration: none !important;
     }
+    
+    .img-max{
+        max-width: 500px; 
+        width:100%;
+    }
+    
   </style>
 
   <div class="container" style="margin-bottom: 180px;">
     <div class="jumbotron text-center"
       style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
-      <img src="mtglogo.png" class="img-fluid" style="max-width: 500px; width:100%;">
+      <img src="mtglogo.png" class="img-fluid img-max">
       <h1>Stable Diffusion Textual Inversion Embeddings</h1>
     </div>
     <div style="text-align: center;margin-bottom: 45px;font-size: 8pt;">
