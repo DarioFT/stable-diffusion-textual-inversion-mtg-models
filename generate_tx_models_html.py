@@ -91,7 +91,7 @@ html_struct = f"""
             <a href="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml"><img src="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml/badge.svg"></a>
         </div>
         <br>
-        <i>Page updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="{dt.strftime(f"%m-%d-%Y %H:%M:%S {tz}")}">{dt.strftime("%A %B %d, %Y")}</a>.</i>
+        <i>Page updated automatically updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="{dt.strftime(f"%m-%d-%Y %H:%M:%S {tz}")}">{dt.strftime("%A %B %d, %Y")}</a>.</i>
       </p>
     </div>
 
@@ -145,54 +145,39 @@ for model_name in models_list:
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="sample-tab" data-bs-toggle="tab" data-bs-target="#sample" type="button" role="tab" aria-controls="Sample" aria-selected="true">Sample</button>
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="model-tab" data-bs-toggle="tab" data-bs-target="#model" type="button" role="tab" aria-controls="Model" aria-selected="false">Model</button>
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="sample" role="tabpanel" aria-labelledby="sample-tab">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-        <div class="row">
-                """
-            img_count = 4
-            if len(concept_images) < 4:
-                img_count = len(concept_images)
+<div class="row">
+        """
 
-            for x in range(img_count):
-                html_struct = html_struct + f"""
-        <div class="col-sm">
-          <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
-        </div>
-                """
-            html_struct = html_struct + '</div></div>'
-        i = i + 1
-html_struct = html_struct + """
-        </div>
-    </div>
+        # Most repos have 3 concept images but some have more or less
+        # We gotta make sure only 3 are shown
+        img_count = 3
+        if len(concept_images) < 3:
+            img_count = len(concept_images)
 
-  <div class="tab-pane fade" id="model" role="tabpanel" aria-labelledby="model-tab">
-
-        <div class="row">
-                """
-            img_count = 4
-            if len(concept_images) < 4:
-                img_count = len(concept_images)
-
-            for x in range(img_count):
-                html_struct = html_struct + f"""
-        <div class="col-sm">
-          <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
-        </div>
-                """
-            html_struct = html_struct + '</div></div>'
-        i = i + 2
-    html_struct = html_struct + """
-        </div>
-    </div>
+        for x in range(img_count):
+            html_struct = html_struct + f"""
+<div class="col-sm">
+  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">-->
+  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
 </div>
-  
+            """
+        html_struct = html_struct + '</div></div>'
+    i = i + 1
+
+html_struct = html_struct + """
+
+</div>
+
+  </div>
   <script>
     // Download the file under a different name
     const downloadAs = (url, name) => {
