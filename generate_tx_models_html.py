@@ -152,9 +152,8 @@ for model_name in models_list:
   </li>
 </ul>
 <div class="tab-content" id="{model_name}-tab">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="{model_name}-sample-tab">
-
-<div class="row">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="{model_name}-sample-tab">
+        <div class="row">
         """
 
         # Most repos have 3 concept images but some have more or less
@@ -165,28 +164,26 @@ for model_name in models_list:
 
         for x in range(img_count):
             html_struct = html_struct + f"""
-<div class="col-sm">
-  <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">-->
-  <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
-</div>
+        <div class="col-sm">
+          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">-->
+          <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
+        </div>
             """
         html_struct = html_struct + '</div></div>'
 
     html_struct = html_struct + """
 
-</div>
 
-  <div class="tab-pane fade" id="{model_name}-model-tab" role="tabpanel" aria-labelledby="{model_name}-model-tab">
+    <div class="tab-pane fade" id="{model_name}-model-tab" role="tabpanel" aria-labelledby="{model_name}-model-tab">
+        <div class="row">
 
-<div class="row">
+    """
 
-"""
+    # Most repos have 3 concept images but some have more or less
+    # We gotta make sure only 3 are shown
 
-# Most repos have 3 concept images but some have more or less
-# We gotta make sure only 3 are shown
-
-    img_count = 3
-    if len(concept_images) < 3:
+    img_count = 2
+    if len(concept_images) < 2:
         img_count = len(concept_images)
 
     for x in range(img_count):
