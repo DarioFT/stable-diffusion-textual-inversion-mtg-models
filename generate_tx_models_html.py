@@ -19,7 +19,7 @@ print('Will save to file:', args.out_file)
 
 # Init some stuff before saving the time
 api = HfApi()
-models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin", "nahiri", "saheeli-rai"]
+models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin", "nahiri", "saheeli-rai", "huatli"]
 models_list.sort()
 
 # Save the time now before we do the hard work
@@ -91,18 +91,18 @@ html_struct = f"""
             <a href="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml"><img src="https://github.com/DarioFT/stable-diffusion-textual-inversion-mtg-models/actions/workflows/generate_static_html.yml/badge.svg"></a>
         </div>
         <br>
-        <i>Page updated automatically updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="{dt.strftime(f"%m-%d-%Y %H:%M:%S {tz}")}">{dt.strftime("%A %B %d, %Y")}</a>.</i>
+        <i>Page updated on <a class="btn-link" style="cursor: pointer;text-decoration: none;" data-toggle="tooltip" data-placement="bottom" title="{dt.strftime(f"%m-%d-%Y %H:%M:%S {tz}")}">{dt.strftime("%A %B %d, %Y")}</a>.</i>
       </p>
     </div>
 
     <p>
-      Curated list for <a href="https://huggingface.co/sd-concepts-library">HuggingFace textual inversion library</a> Magic: The Gathering Models. 
+      Curated list of <a href="https://huggingface.co/sd-concepts-library">HuggingFace textual inversion library</a> Magic: The Gathering models. 
       <br>
       There are currently {len(models_list)} textual inversion embeddings listed. These are meant to be used with <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111's SD WebUI</a>.
     </p>
 
     <p>
-      Embeddings are downloaded straight from the HuggingFace repositories. The images displayed are the inputs, not the outputs. <br> Want to quickly test concepts? 
+      Embeddings are downloaded straight from the HuggingFace repositories. <br> Want to quickly test concepts? 
       Try the <a href="https://huggingface.co/spaces/sd-concepts-library/stable-diffusion-conceptualizer">Stable Diffusion Conceptualizer</a> on HuggingFace. <a href="https://huggingface.co/docs/diffusers/main/en/training/text_inversion">More info on textual inversion.</a>
     </p>
 
@@ -146,7 +146,7 @@ for model_name in models_list:
 
 <ul class="nav nav-tabs" id="{model_name}-tab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="{model_name}-sample-tab" data-bs-toggle="tab" data-bs-target="#{model_name}-sample" type="button" role="tab" aria-controls="{model_name}-sample" aria-selected="true">Sample</button>
+    <button class="nav-link active" id="{model_name}-sample-tab" data-bs-toggle="tab" data-bs-target="#{model_name}-sample" type="button" role="tab" aria-controls="{model_name}-sample" aria-selected="true">Samples</button>
   </li>
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="{model_name}-model-tab" data-bs-toggle="tab" data-bs-target="#{model_name}-model" type="button" role="tab" aria-controls="{model_name}-model" aria-selected="false">Model</button>
