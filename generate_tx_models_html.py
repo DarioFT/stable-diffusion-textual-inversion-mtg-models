@@ -152,7 +152,7 @@ for model_name in models_list:
   </li>
 </ul>
 <div class="tab-content" id="{model_name}-tab">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="{model_name}-sample-tab">
+    <div class="tab-pane fade show active" id="{model_name}-sample-tab" role="tabpanel" aria-labelledby="{model_name}-sample-tab">
         <div class="row">
         """
 
