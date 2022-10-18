@@ -165,7 +165,6 @@ for model_name in models_list:
         for x in range(img_count):
             html_struct = html_struct + f"""
         <div class="col-sm">
-          <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">-->
           <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
         </div>
             """
@@ -194,8 +193,8 @@ for model_name in models_list:
       <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
     </div>
                 """
-        html_struct = html_struct + '</div></div>'
-        
+
+    html_struct = html_struct + '</div></div>'
     i = i + 1
 
 html_struct = html_struct + """
