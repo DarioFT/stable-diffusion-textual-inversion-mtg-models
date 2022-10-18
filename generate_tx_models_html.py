@@ -19,7 +19,7 @@ print('Will save to file:', args.out_file)
 
 # Init some stuff before saving the time
 api = HfApi()
-models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin", "nahiri"]
+models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin", "nahiri", "saheeli-rai"]
 models_list.sort()
 
 # Save the time now before we do the hard work
@@ -31,7 +31,7 @@ html_struct = f"""
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Stable Diffusion Textual Inversion Embeddings</title>
+  <title>MTG Stable Diffusion Textual Inversion Embeddings</title>
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
