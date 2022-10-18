@@ -125,6 +125,7 @@ for model_name in models_list:
         files = api.list_repo_files(
             repo_id=f'sd-concepts-library/{model_name}')
         concept_images = [i for i in files if i.startswith('concept_images/')]
+        sample_images = [i for i in files if i.startswith('sample_images/')]
     except requests.exceptions.HTTPError:
         # Sometimes an author will require you to share your contact info to gain access
         restricted = True
@@ -152,44 +153,38 @@ for model_name in models_list:
   </li>
 </ul>
 <div class="tab-content" id="{model_name}-tab">
-    <div class="tab-pane fade show active" id="{model_name}-sample-tab" role="tabpanel" aria-labelledby="{model_name}-sample-tab">
+    <div class="tab-pane fade show active" id="{model_name}-sample" role="tabpanel" aria-labelledby="{model_name}-sample-tab">
         <div class="row">
         """
 
-        # Most repos have 3 concept images but some have more or less
-        # We gotta make sure only 3 are shown
         img_count = 4
-        if len(concept_images) < 4:
-            img_count = len(concept_images)
+        if len(sample_images) < 4:
+            img_count = len(sample_images)
 
         for x in range(img_count):
             html_struct = html_struct + f"""
         <div class="col-sm">
-          <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
+          <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{sample_images[x]}">
         </div>
             """
         html_struct = html_struct + '</div></div>'
 
-    html_struct = html_struct + """
+    html_struct = html_struct + f"""
 
 
-    <div class="tab-pane fade" id="{model_name}-model-tab" role="tabpanel" aria-labelledby="{model_name}-model-tab">
+    <div class="tab-pane fade" id="{model_name}-model" role="tabpanel" aria-labelledby="{model_name}-model-tab">
         <div class="row">
 
     """
 
-    # Most repos have 3 concept images but some have more or less
-    # We gotta make sure only 3 are shown
-
-    img_count = 2
-    if len(concept_images) < 2:
+    img_count = 4
+    if len(concept_images) < 4:
         img_count = len(concept_images)
 
     for x in range(img_count):
         html_struct = html_struct + f"""
 
     <div class="col-sm">
-      <!-- <img class="thumbnail mx-auto lazy-load img-fluid" data-src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">-->
       <img class="thumbnail mx-auto img-fluid" loading="lazy" src="https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/{concept_images[x]}">
     </div>
                 """
