@@ -80,7 +80,7 @@ html_struct = f"""
     }}
   </style>
 
-  <div class="container" style="margin-bottom: 180px;">
+  <div class="container">
     <div class="jumbotron text-center" style="margin-top: 45px;margin-right: 45px;margin-bottom: 0px;margin-left: 45px;">
       <img src="mtglogo.png" class="img-fluid img-max">
       <h1>Stable Diffusion Textual Inversion Embeddings</h1>
@@ -140,7 +140,7 @@ for model_name in models_list:
     else:
         html_struct = html_struct + f"""
 <p>
-  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/learned_embeds.bin', '{model_name}.pt')">Download {model_name}.pt</button>
+  <button type="button" class="btn btn-primary" onclick="downloadAs('https://huggingface.co/sd-concepts-library/{model_name}/resolve/main/learned_embeds.bin', '{model_name.replace("-", " " )}.pt')">Download {model_name.replace("-", " " )}.pt</button>
   <a type="button" class="btn btn-link" href="https://huggingface.co/sd-concepts-library/{model_name}/">View Repository</a>
 </p>
 
@@ -197,6 +197,15 @@ html_struct = html_struct + """
 </div>
 
   </div>
+  
+  <div class="container">
+  <footer class="py-3 my-4">
+    <div class="nav justify-content-center border-bottom pb-3 mb-3">
+    </div>
+    <p class="text-center text-muted">Magic: the Gathering is TM and copyright Wizards of the Coast, Inc, a subsidiary of Hasbro, Inc. All rights reserved. All art used for model training is property of their respective artists and/or Wizards of the Coast. This site is not produced, affiliated or endorsed by Wizards of the Coast, Inc.</p>
+  </footer>
+</div>
+  
   <script>
     // Download the file under a different name
     const downloadAs = (url, name) => {
