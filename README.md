@@ -1,4 +1,4 @@
-# stable-diffusion-textual-inversion-models
+# stable-diffusion-textual-inversion-mtg-models
 
 _Automated curated list of Stable Diffusion textual inversion MTG models from sd-concepts-library._
 
