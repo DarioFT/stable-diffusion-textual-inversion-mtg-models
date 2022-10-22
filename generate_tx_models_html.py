@@ -19,7 +19,8 @@ print('Will save to file:', args.out_file)
 
 # Init some stuff before saving the time
 api = HfApi()
-models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin", "nahiri", "saheeli-rai", "huatli", "vivien-reid"]
+models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin", 
+"nahiri", "saheeli-rai", "huatli", "vivien-reid", "liliana-vess"]
 models_list.sort()
 
 # Save the time now before we do the hard work
@@ -33,7 +34,7 @@ html_struct = f"""
   
   <!-- HTML Meta Tags -->
   <meta charset="utf-8">
-  <title>Magic:The Gathering - Stable Diffusion Textual Inversion Embeddings</title>
+  <title>MTG - Stable Diffusion Textual Inversion Embeddings</title>
   <meta name="description" content="Curated list of custom HuggingFace textual inversion library Magic: The Gathering models for download.">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
@@ -43,7 +44,7 @@ html_struct = f"""
   <!-- Facebook Meta Tags -->
   <meta property="og:url" content="https://darioft.github.io/stable-diffusion-textual-inversion-mtg-models/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Magic:The Gathering - Stable Diffusion Textual Inversion Embeddings">
+  <meta property="og:title" content="Magic: The Gathering - Stable Diffusion Textual Inversion Embeddings">
   <meta property="og:description" content="Curated list of custom HuggingFace textual inversion library Magic: The Gathering models for download.">
   <meta property="og:image" content="https://darioft.github.io/stable-diffusion-textual-inversion-mtg-models/og.jpg">
 
@@ -51,7 +52,7 @@ html_struct = f"""
   <meta name="twitter:card" content="summary_large_image">
   <meta property="twitter:domain" content="darioft.github.io">
   <meta property="twitter:url" content="https://darioft.github.io/stable-diffusion-textual-inversion-mtg-models/">
-  <meta name="twitter:title" content="Magic:The Gathering - Stable Diffusion Textual Inversion Embeddings">
+  <meta name="twitter:title" content="Magic: The Gathering - Stable Diffusion Textual Inversion Embeddings">
   <meta name="twitter:description" content="Curated list of custom HuggingFace textual inversion library Magic: The Gathering models for download.">
   <meta name="twitter:image" content="https://darioft.github.io/stable-diffusion-textual-inversion-mtg-models/og.jpg">
 
