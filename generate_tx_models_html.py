@@ -20,7 +20,7 @@ print('Will save to file:', args.out_file)
 # Init some stuff before saving the time
 api = HfApi()
 models_list = ["nissa-revane", "tamiyo", "chandra-nalaar", "kiora", "vraska", "elspeth-tirel", "kaya-ghost-assasin", 
-"nahiri", "saheeli-rai", "huatli", "vivien-reid", "liliana-vess"]
+"nahiri", "saheeli-rai", "huatli", "vivien-reid", "liliana-vess", "ashiok"]
 models_list.sort()
 
 # Save the time now before we do the hard work
